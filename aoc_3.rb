@@ -13,3 +13,12 @@ def first_problem(input, hash_table)
 end
 
 p first_problem(problem_input, hash_table)
+
+def second_problem(input, hash_table)
+  input.each_slice(3).sum do |group_bag|
+    intersection = group_bag.map(&:chars).reduce(:&).first
+    hash_table[intersection]
+  end
+end
+
+p second_problem(problem_input, hash_table)
